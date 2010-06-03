@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+use Dzpl
+    name => 'Getopt-Usaginator',
+    version => '0.0010',
+    author => 'Robert Krimen <robertkrimen@gmail.com>',
+    license => 'Perl5',
+    copyright => 'Robert Krimen',
+
+    require => q/
+        Package::Pkg 0.0014
+
+        [Test]
+        Test::Most
+        File::Spec
+        IPC::Open3
+    /,
+;
+
+{ plugin '@ROKR' }
