@@ -2,7 +2,7 @@ NAME
     Getopt::Usaginator - Conjure up a 'usage' function for your applications
 
 VERSION
-    version 0.0010
+    version 0.0011
 
 SYNOPSIS
         use Getopt::Usaginator <<_END_;
@@ -66,6 +66,28 @@ USAGE
             usage => sub { ... },
             ...
         ;
+
+An example with Getopt::Long parsing
+        use Getopt::Usaginator ...
+
+        sub run {
+            my $self = shift;
+            my @arguments = @_;
+    
+            usage 0 unless @arguments;
+
+            my ( $help );
+            {     
+                local @ARGV = @arguments;                                  
+                GetOptions(
+                    'help|h|?' => \$help,
+                );
+            }
+
+            usage 0 if $help;
+
+            ...
+        }
 
 AUTHOR
       Robert Krimen <robertkrimen@gmail.com>

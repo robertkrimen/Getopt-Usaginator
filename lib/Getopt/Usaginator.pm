@@ -67,6 +67,29 @@ An example:
         ...
     ;
 
+=head1 An example with Getopt::Long parsing
+
+    use Getopt::Usaginator ...
+
+    sub run {
+        my $self = shift;
+        my @arguments = @_;
+    
+        usage 0 unless @arguments;
+
+        my ( $help );
+        {     
+            local @ARGV = @arguments;                                  
+            GetOptions(
+                'help|h|?' => \$help,
+            );
+        }
+
+        usage 0 if $help;
+
+        ...
+    }
+
 =cut 
 
 use strict;
