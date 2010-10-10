@@ -2,18 +2,18 @@ NAME
     Getopt::Usaginator - Conjure up a 'usage' function for your applications
 
 VERSION
-    version 0.0011
+    version 0.0012
 
 SYNOPSIS
         use Getopt::Usaginator <<_END_;
 
             Usage: xyzzy <options>
-    
-            --derp          Derp derp derp         
+        
+        --derp          Derp derp derp         
             --durp          Durp durp durp
             -h, --help      This usage
-        
-        _END_
+            
+    _END_
 
         # The 'usage' subroutine is now installed
 
@@ -27,8 +27,8 @@ SYNOPSIS
             # Print warning and usage and exit with status -1
             usage "You should really derp";
         }
-    
-        if ( $options{durp} ) {
+        
+    if ( $options{durp} ) {
             # Print warning and usage and exit with status 2
             usage 2 => "--durp is not ready yet";
         }
@@ -73,8 +73,8 @@ An example with Getopt::Long parsing
         sub run {
             my $self = shift;
             my @arguments = @_;
-    
-            usage 0 unless @arguments;
+        
+        usage 0 unless @arguments;
 
             my ( $help );
             {     
@@ -90,7 +90,7 @@ An example with Getopt::Long parsing
         }
 
 AUTHOR
-      Robert Krimen <robertkrimen@gmail.com>
+    Robert Krimen <robertkrimen@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Robert Krimen.

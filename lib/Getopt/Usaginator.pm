@@ -185,4 +185,18 @@ sub usaginator {
     return $code;
 }
 
+sub parse {
+    my $self = shift;
+    my $arguments = shift;
+
+    require Getopt::Long;
+    my $parser = Getopt::Long::Parser->new;
+    $parser->configure(qw/ pass_through / );
+    { 
+        local @ARGV = @$arguments;
+        $parser->getoptions( @_ );
+        @$arguments = @ARGV;
+    }
+}
+
 1;
